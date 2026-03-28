@@ -13,29 +13,25 @@
   <meta name="language" content="English">
   <meta name="revisit-after" content="7 days">
   
-  <!-- Open Graph / Facebook - PRIORITY: Print & Finish Bundle Image -->
+  <!-- Open Graph / Facebook - Print & Finish Bundle Image -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://anydiel.github.io/">
   <meta property="og:title" content="Anydiel IT Services | Printer Repair & CISS Installation">
   <meta property="og:description" content="Professional printer repair, CISS installation, and IT solutions in Quezon City. ₱1,500 Canon cartridges, home service, and 2-week warranty. Shop the Print & Finish Bundle now!">
-  <!-- MAIN IMAGE: Print & Finish Bundle (high quality) -->
   <meta property="og:image" content="https://anydiel.site/Shop/wp-content/uploads/2026/03/Gemini_Generated_Image_b9yqaeb9yqaeb9yq-1-1.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Canon Print & Finish Bundle - Complete Print Shop Package">
-  <!-- Fallback images (in case Facebook doesn't pick the first one) -->
-  <meta property="og:image" content="https://anydiel.site/Shop/wp-content/uploads/2026/03/Anydiel-CISS-promo-p.png">
-  <meta property="og:image" content="https://anydiel.site/Shop/wp-content/uploads/2026/03/cropped-ANYDIEL-2-removebg-preview.png">
   <meta property="og:site_name" content="Anydiel IT Services">
   <meta property="og:locale" content="en_PH">
   
-  <!-- Twitter Card - Use the bundle image -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://anydiel.github.io/">
   <meta name="twitter:title" content="Anydiel IT Services | Printer Repair & CISS Installation">
   <meta name="twitter:description" content="Professional printer repair, CISS installation, and IT solutions in Quezon City. Shop the Print & Finish Bundle now!">
   <meta name="twitter:image" content="https://anydiel.site/Shop/wp-content/uploads/2026/03/Gemini_Generated_Image_b9yqaeb9yqaeb9yq-1-1.png">
-  <meta name="msvalidate.01" content="6172E0622D20214E89CEF624E7BAB2DB" />
+  
   <!-- Canonical URL -->
   <link rel="canonical" href="https://anydiel.github.io/">
   
@@ -489,7 +485,7 @@
       <a href="https://anydiel.site/Shop/product/canon-printer-ciss-installation/" class="btn">Book Now →</a>
     </div>
 
-    <!-- Product 5: Print & Finish Bundle (NEW) -->
+    <!-- Product 5: Print & Finish Bundle -->
     <div class="product-card">
       <img src="https://anydiel.site/Shop/wp-content/uploads/2026/03/Gemini_Generated_Image_b9yqaeb9yqaeb9yq-1-1.png" alt="Print & Finish Bundle">
       <div class="bundle-badge">🎁 BEST VALUE BUNDLE</div>
@@ -499,7 +495,7 @@
       <a href="https://anydiel.site/Shop/product/print-finish-bundle-for-print-shop-business-package/" class="btn">View Bundle →</a>
     </div>
 
-    <!-- Product 6: Canon TS207 with CISS (NEW) -->
+    <!-- Product 6: Canon TS207 with CISS -->
     <div class="product-card">
       <img src="https://anydiel.site/Shop/wp-content/uploads/2025/06/4-1.png" alt="Canon TS207 with CISS">
       <h3>Canon TS207 with CISS</h3>
@@ -559,9 +555,9 @@
     <p>© 2021 Anydiel IT Services. All rights reserved. | <a href="https://anydiel.site/Shop/privacy-policy/">Privacy Policy</a></p>
   </div>
 </footer>
+
 <!-- Bottom-Left Sliding Pop-Up Banner -->
 <style>
-  /* Slide-up banner container */
   .slide-banner {
     position: fixed;
     bottom: 20px;
@@ -583,7 +579,6 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   }
 
-  /* Banner image */
   .banner-image {
     width: 100%;
     height: auto;
@@ -592,7 +587,6 @@
     border: 1px solid rgba(50, 168, 82, 0.2);
   }
 
-  /* Close button */
   .banner-close {
     position: absolute;
     top: -12px;
@@ -620,7 +614,6 @@
     transform: scale(1.1);
   }
 
-  /* Slide-up animation */
   @keyframes slideUp {
     0% {
       transform: translateY(120%);
@@ -632,7 +625,6 @@
     }
   }
 
-  /* Desktop: wider banner */
   @media (min-width: 768px) {
     .slide-banner {
       max-width: 360px;
@@ -648,7 +640,6 @@
     }
   }
 
-  /* Tablet */
   @media (max-width: 767px) and (min-width: 481px) {
     .slide-banner {
       max-width: 300px;
@@ -657,7 +648,6 @@
     }
   }
 
-  /* Mobile */
   @media (max-width: 480px) {
     .slide-banner {
       max-width: 260px;
@@ -673,7 +663,6 @@
     }
   }
 
-  /* Extra small devices */
   @media (max-width: 380px) {
     .slide-banner {
       max-width: 220px;
@@ -692,22 +681,20 @@
   // Correct checkout link with product added to cart
   const promoProductUrl = 'https://anydiel.site/Shop/checkout/?add-to-cart=59';
   
-  // Get elements
   const banner = document.getElementById('promoBanner');
   const closeBtn = document.getElementById('closeBanner');
 
-  // When clicking the banner (not the close button), go to checkout
   banner.addEventListener('click', (e) => {
     if (e.target !== closeBtn && !closeBtn.contains(e.target)) {
       window.location.href = promoProductUrl;
     }
   });
 
-  // Close banner when clicking close button
   closeBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     banner.style.display = 'none';
   });
 </script>
+
 </body>
 </html>
