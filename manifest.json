@@ -1,0 +1,48 @@
+{
+  "name": "Anydiel IT Services",
+  "short_name": "Anydiel",
+  "description": "Printer repair, CISS installation, and IT solutions in Quezon City. ₱1,500 Canon cartridges, home service, 2-week warranty.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#32a852",
+  "theme_color": "#32a852",
+  "icons": [
+    {
+      "src": "https://anydiel.site/Shop/wp-content/uploads/2026/03/cropped-ANYDIEL-2-removebg-preview.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://anydiel.site/Shop/wp-content/uploads/2026/03/cropped-ANYDIEL-2-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call Anydiel IT Services",
+      "url": "/?action=call",
+      "icons": [
+        {
+          "src": "https://anydiel.site/Shop/wp-content/uploads/2026/03/cropped-ANYDIEL-2-removebg-preview.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Shop Cartridges",
+      "short_name": "Cartridges",
+      "description": "Shop Canon cartridges",
+      "url": "/#best-sellers"
+    }
+  ],
+  "categories": ["shopping", "business", "services"],
+  "lang": "en-PH",
+  "dir": "ltr",
+  "display_override": ["window-controls-overlay", "standalone"]
+}
