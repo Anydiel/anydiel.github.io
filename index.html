@@ -559,6 +559,155 @@
     <p>© 2021 Anydiel IT Services. All rights reserved. | <a href="https://anydiel.site/Shop/privacy-policy/">Privacy Policy</a></p>
   </div>
 </footer>
+<!-- Bottom-Left Sliding Pop-Up Banner -->
+<style>
+  /* Slide-up banner container */
+  .slide-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    transform: translateY(120%);
+    animation: slideUp 0.5s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+    animation-delay: 2s;
+    cursor: pointer;
+    max-width: 320px;
+    width: calc(100% - 40px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
 
+  .slide-banner:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Banner image */
+  .banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid rgba(50, 168, 82, 0.2);
+  }
+
+  /* Close button */
+  .banner-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: white;
+    color: #32a852;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    z-index: 10000;
+    border: 1px solid #32a852;
+  }
+
+  .banner-close:hover {
+    background: #32a852;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  /* Slide-up animation */
+  @keyframes slideUp {
+    0% {
+      transform: translateY(120%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Desktop: wider banner */
+  @media (min-width: 768px) {
+    .slide-banner {
+      max-width: 360px;
+      bottom: 25px;
+      left: 25px;
+    }
+    .banner-close {
+      top: -14px;
+      right: -14px;
+      width: 32px;
+      height: 32px;
+      font-size: 20px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 767px) and (min-width: 481px) {
+    .slide-banner {
+      max-width: 300px;
+      bottom: 20px;
+      left: 20px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .slide-banner {
+      max-width: 260px;
+      bottom: 15px;
+      left: 15px;
+    }
+    .banner-close {
+      top: -10px;
+      right: -10px;
+      width: 26px;
+      height: 26px;
+      font-size: 16px;
+    }
+  }
+
+  /* Extra small devices */
+  @media (max-width: 380px) {
+    .slide-banner {
+      max-width: 220px;
+      bottom: 12px;
+      left: 12px;
+    }
+  }
+</style>
+
+<div id="promoBanner" class="slide-banner">
+  <img class="banner-image" src="https://anydiel.site/Shop/wp-content/uploads/2026/03/Ink-Tank-Credit-Card.png" alt="Credit Card Promo: Free Installation & Repair">
+  <div class="banner-close" id="closeBanner">✕</div>
+</div>
+
+<script>
+  // Correct checkout link with product added to cart
+  const promoProductUrl = 'https://anydiel.site/Shop/checkout/?add-to-cart=59';
+  
+  // Get elements
+  const banner = document.getElementById('promoBanner');
+  const closeBtn = document.getElementById('closeBanner');
+
+  // When clicking the banner (not the close button), go to checkout
+  banner.addEventListener('click', (e) => {
+    if (e.target !== closeBtn && !closeBtn.contains(e.target)) {
+      window.location.href = promoProductUrl;
+    }
+  });
+
+  // Close banner when clicking close button
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    banner.style.display = 'none';
+  });
+</script>
 </body>
 </html>
