@@ -3,42 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Anydiel IT Services Video Gallery | CISS Installation & Printer Repair Demos</title>
+  <title>Anydiel IT Services | Video Gallery</title>
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Watch CISS installation tutorials, printer repair demos, and customer success stories from Anydiel IT Services in Quezon City. See how we convert Canon printers to Continuous Ink Supply System.">
-  <meta name="keywords" content="CISS installation, printer repair Quezon City, Canon printer conversion, continuous ink system, printer repair demo, Anydiel IT Services, printer tutorial, Canon CISS, Epson ink">
-  <meta name="author" content="Anydiel IT Services">
+  <meta name="description" content="Watch Anydiel IT Services in action! CISS installation, printer repair demos, customer stories, and helpful tech tips.">
   <meta name="robots" content="index, follow">
-  <meta name="geo.region" content="PH-00">
-  <meta name="geo.placename" content="Quezon City">
-  <meta name="geo.position" content="14.676041;121.043700">
-  <meta name="ICBM" content="14.676041, 121.043700">
-  <meta name="language" content="English">
-  <meta name="revisit-after" content="7 days">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://catalog.anydiel.site/videos.html">
-  <meta property="og:title" content="Anydiel IT Services | Video Gallery - CISS Installation & Printer Repair">
-  <meta property="og:description" content="Watch step-by-step CISS installation tutorials and printer repair demos. Learn how to convert your Canon printer to Continuous Ink Supply System. Professional IT services in Quezon City.">
-  <meta property="og:image" content="https://anydiel.site/Shop/wp-content/uploads/2026/03/Gemini_Generated_Image_b9yqaeb9yqaeb9yq-1-1.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:site_name" content="Anydiel IT Services">
-  <meta property="og:locale" content="en_PH">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Anydiel IT Services Video Gallery | CISS Installation & Printer Repair">
-  <meta name="twitter:description" content="Watch CISS installation tutorials and printer repair demos. See how we convert Canon printers to Continuous Ink Supply System in Quezon City.">
-  <meta name="twitter:image" content="https://anydiel.site/Shop/wp-content/uploads/2026/03/Gemini_Generated_Image_b9yqaeb9yqaeb9yq-1-1.png">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://catalog.anydiel.site/videos.html">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://anydiel.site/Shop/wp-content/uploads/2026/03/cropped-ANYDIEL-2-removebg-preview.png">
   
   <style>
     * {
@@ -95,18 +63,23 @@
       background: rgba(255,255,255,0.3);
     }
 
-    .breadcrumbs {
-      margin: 20px auto;
-      font-size: 14px;
-      color: #666;
+    .menu {
+      background: white;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: center;
     }
 
-    .breadcrumbs a {
+    .menu a {
       color: #32a852;
       text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
 
-    .breadcrumbs a:hover {
+    .menu a:hover {
+      color: #267c3e;
       text-decoration: underline;
     }
 
@@ -305,9 +278,95 @@
     }
 
     @media (max-width: 768px) {
+      .menu a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
       .video-grid {
         gap: 20px;
       }
+    }
+
+    @media (max-width: 480px) {
+      .menu a {
+        margin: 0 8px;
+        font-size: 12px;
+      }
+    }
+
+    /* Timed Popup Styles */
+    .timed-popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timed-popup {
+      background: white;
+      border-radius: 24px;
+      max-width: 500px;
+      width: 90%;
+      padding: 25px;
+      text-align: center;
+      position: relative;
+      animation: popupFadeIn 0.3s ease;
+    }
+
+    .timed-popup h3 {
+      color: #32a852;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .timed-popup p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .timed-popup .popup-video {
+      margin: 15px 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .timed-popup .popup-btn {
+      display: inline-block;
+      background: #32a852;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .timed-popup .popup-btn:hover {
+      background: #267c3e;
+    }
+
+    .timed-popup .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .timed-popup .close-btn:hover {
+      color: #333;
+    }
+
+    @keyframes popupFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -321,13 +380,17 @@
   </div>
 </div>
 
+<div class="menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="https://anydiel.site/Shop">🛒 Shop</a>
+  <a href="videos.html" style="font-weight: bold;">📹 Videos</a>
+  <a href="contact.html">📞 Contact</a>
+  <a href="https://facebook.com/Anydiel1982" target="_blank">📘 Facebook</a>
+</div>
+
 <div class="container">
-  <div class="breadcrumbs">
-    <a href="https://catalog.anydiel.site">Home</a> › <span>Video Gallery</span>
-  </div>
   
   <div class="video-grid">
-    
     <!-- Video 1: YouTube Short - CISS Installation Tutorial -->
     <div class="video-card">
       <div class="video-container">
@@ -351,11 +414,9 @@
         <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@anydiel1982/video/7622308628162235668" data-video-id="7622308628162235668" style="width: 100%; height: 100%;">
           <section>
             <a target="_blank" title="@anydiel1982" href="https://www.tiktok.com/@anydiel1982?refer=embed">@anydiel1982</a>
-            canon printer conversion. link: https://anydiel.site https://anydiel.github.io
+            canon printer conversion. link: https://anydiel.site
             <a title="canon" target="_blank" href="https://www.tiktok.com/tag/canon?refer=embed">#canon</a>
             <a title="ciss" target="_blank" href="https://www.tiktok.com/tag/ciss?refer=embed">#ciss</a>
-            <a title="continuous" target="_blank" href="https://www.tiktok.com/tag/continuous?refer=embed">#continuous</a> ink
-            <a target="_blank" title="♬ My Work - 12ME" href="https://www.tiktok.com/music/My-Work-7072854527187109889?refer=embed">♬ My Work - 12ME</a>
           </section>
         </blockquote>
         <script async src="https://www.tiktok.com/embed.js"></script>
@@ -375,8 +436,6 @@
             <a target="_blank" title="@anydiel1982" href="https://www.tiktok.com/@anydiel1982?refer=embed">@anydiel1982</a>
             IX6770 Canon Converted to Continuous Ink
             <a title="canonprinter" target="_blank" href="https://www.tiktok.com/tag/canonprinter?refer=embed">#canonprinter</a>
-            <a title="canoncontinuousink" target="_blank" href="https://www.tiktok.com/tag/canoncontinuousink?refer=embed">#canoncontinuousink</a>
-            <a title="canoncartridge" target="_blank" href="https://www.tiktok.com/tag/canoncartridge?refer=embed">#canoncartridge</a>
           </section>
         </blockquote>
         <script async src="https://www.tiktok.com/embed.js"></script>
@@ -384,7 +443,7 @@
       <div class="video-info">
         <span class="video-badge">📱 TikTok</span>
         <h3>IX6770 Canon Converted to CISS</h3>
-        <p>Watch the conversion process for the Canon IX6770 printer to Continuous Ink Supply System.</p>
+        <p>Watch the conversion process for the Canon IX6770 printer.</p>
       </div>
     </div>
 
@@ -396,8 +455,6 @@
             <a target="_blank" title="@anydiel1982" href="https://www.tiktok.com/@anydiel1982?refer=embed">@anydiel1982</a>
             Upgrade your canon printer to CiS
             <a title="canoncartridge" target="_blank" href="https://www.tiktok.com/tag/canoncartridge?refer=embed">#canoncartridge</a>
-            <a title="canonprinter" target="_blank" href="https://www.tiktok.com/tag/canonprinter?refer=embed">#canonprinter</a>
-            <a title="canonciss" target="_blank" href="https://www.tiktok.com/tag/canonciss?refer=embed">#canonciss</a>
           </section>
         </blockquote>
         <script async src="https://www.tiktok.com/embed.js"></script>
@@ -425,30 +482,9 @@
       <div class="video-info">
         <span class="video-badge">📘 Facebook</span>
         <h3>💡 Epson Ink Tip: Use Original Ink!</h3>
-        <p>Gumamit lang po ng original Epson ink. ⚠️ Para iwas void warranty at iwas gastos na malla! Available sa aming shop: anydiel.site/Shop</p>
+        <p>Gumamit lang po ng original Epson ink. ⚠️ Para iwas void warranty at iwas gastos! Available sa aming shop: anydiel.site/Shop</p>
       </div>
     </div>
-
-    <!-- Video 6: TikTok Photo - (Placeholder for your new TikTok photo) -->
-    <div class="video-card">
-      <div class="video-container">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@anydiel1982/photo/7622316444117749012" data-video-id="7622316444117749012" style="width: 100%; height: 100%;">
-          <section>
-            <a target="_blank" title="@anydiel1982" href="https://www.tiktok.com/@anydiel1982?refer=embed">@anydiel1982</a>
-            <a title="canon" target="_blank" href="https://www.tiktok.com/tag/canon?refer=embed">#canon</a>
-            <a title="ciss" target="_blank" href="https://www.tiktok.com/tag/ciss?refer=embed">#ciss</a>
-            <a title="printers" target="_blank" href="https://www.tiktok.com/tag/printers?refer=embed">#printers</a>
-          </section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-      </div>
-      <div class="video-info">
-        <span class="video-badge">📱 TikTok Photo</span>
-        <h3>Canon Printer CISS Tip</h3>
-        <p>Check out our latest printer conversion tip! Available at anydiel.site/Shop</p>
-      </div>
-    </div>
-
   </div>
 
   <!-- Share Section -->
@@ -461,7 +497,7 @@
     </div>
   </div>
 
-  <!-- Newsletter Signup - Google Forms -->
+  <!-- Newsletter Signup -->
   <div class="newsletter">
     <h3>📧 Get Printer Tips & Promos</h3>
     <p>Subscribe to get exclusive discounts and printer maintenance tips!</p>
@@ -476,7 +512,7 @@
     <p class="newsletter-note">🔒 We never share your email. Unsubscribe anytime.</p>
   </div>
 
-  <!-- Call to Action with Social Links -->
+  <!-- Call to Action -->
   <div class="cta-section">
     <h2>📹 Want to See More?</h2>
     <p>Follow us on social media for more videos, tips, and promos!</p>
@@ -500,88 +536,51 @@
   </div>
 </footer>
 
-<!-- Schema.org Video Markup (Updated for 6 videos) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Anydiel IT Services Video Gallery",
-  "description": "CISS installation tutorials, printer repair demos, and customer success stories",
-  "numberOfItems": 6,
-  "itemListElement": [
-    {
-      "@type": "VideoObject",
-      "name": "Canon CISS Installation in 90 Seconds",
-      "description": "Fast-paced tutorial showing CISS installation process on Canon Pixma printers",
-      "thumbnailUrl": "https://img.youtube.com/vi/as-MLfaPkiY/maxresdefault.jpg",
-      "embedUrl": "https://www.youtube.com/embed/as-MLfaPkiY",
-      "uploadDate": "2026-03-29",
-      "duration": "PT1M30S"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Canon Printer CISS Conversion",
-      "description": "Watch how we convert Canon printers to Continuous Ink Supply System",
-      "embedUrl": "https://www.tiktok.com/@anydiel1982/video/7622308628162235668",
-      "uploadDate": "2026-03-29"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "IX6770 Canon Converted to CISS",
-      "description": "Watch the conversion process for Canon IX6770 printer to Continuous Ink Supply System",
-      "embedUrl": "https://www.tiktok.com/@anydiel1982/video/7622314843562888469",
-      "uploadDate": "2026-03-29"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Upgrade Your Canon Printer to CISS",
-      "description": "Quick demo showing how to upgrade your Canon printer to Continuous Ink System",
-      "embedUrl": "https://www.tiktok.com/@anydiel1982/video/7622313326550207765",
-      "uploadDate": "2026-03-29"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Epson Ink Tip: Use Original Ink",
-      "description": "Tip on using original Epson ink to avoid voiding warranty",
-      "embedUrl": "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F861706089617853%2F",
-      "uploadDate": "2026-03-29"
-    },
-    {
-      "@type": "VideoObject",
-      "name": "Canon Printer CISS Tip",
-      "description": "Quick tip on Canon printer CISS conversion",
-      "embedUrl": "https://www.tiktok.com/@anydiel1982/photo/7622316444117749012",
-      "uploadDate": "2026-03-29"
-    }
-  ]
-}
-</script>
+<!-- Timed Popup with TikTok Video -->
+<div id="timedPopup" class="timed-popup-overlay">
+  <div class="timed-popup">
+    <span class="close-btn" id="closeTimedPopup">&times;</span>
+    <h3>📹 Watch This!</h3>
+    <p>See our latest video – short and helpful!</p>
+    <div class="popup-video">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@anydiel1982/video/7622493884001668372" data-video-id="7622493884001668372" style="width: 100%;">
+        <section>
+          <a target="_blank" title="@anydiel1982" href="https://www.tiktok.com/@anydiel1982?refer=embed">@anydiel1982</a>
+          <p>short video</p>
+          <a target="_blank" title="♬ original sound - Anydiel IT Services" href="https://www.tiktok.com/music/original-sound-Anydiel-IT-Services-7622493951959091986?refer=embed">♬ original sound - Anydiel IT Services</a>
+        </section>
+      </blockquote>
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </div>
+    <a href="videos.html" class="popup-btn">🎬 Watch More Videos</a>
+    <a href="https://anydiel.site/Shop" class="popup-btn" style="background: #ffc107; color: #267c3e;">🛒 Shop Now</a>
+  </div>
+</div>
 
-<!-- Local Business Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Anydiel IT Services",
-  "image": "https://anydiel.site/Shop/wp-content/uploads/2026/03/cropped-ANYDIEL-2-removebg-preview.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "1114 Saint Florence St. Brgy. Holy Spirit",
-    "addressLocality": "Quezon City",
-    "addressRegion": "Metro Manila",
-    "postalCode": "1114",
-    "addressCountry": "PH"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "14.676041",
-    "longitude": "121.043700"
-  },
-  "url": "https://catalog.anydiel.site",
-  "telephone": "+639677168135",
-  "openingHours": "Mo-Su 00:00-23:59",
-  "priceRange": "₱"
-}
+<script>
+  // Timed popup - appears after 5 seconds
+  setTimeout(function() {
+    const popup = document.getElementById('timedPopup');
+    if (popup) {
+      popup.style.display = 'flex';
+    }
+  }, 5000);
+
+  // Close popup when clicking X
+  const closeBtn = document.getElementById('closeTimedPopup');
+  if (closeBtn) {
+    closeBtn.onclick = function() {
+      document.getElementById('timedPopup').style.display = 'none';
+    };
+  }
+
+  // Close popup when clicking outside
+  window.onclick = function(e) {
+    const popup = document.getElementById('timedPopup');
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  };
 </script>
 
 </body>
