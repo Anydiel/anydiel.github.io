@@ -84,6 +84,31 @@
       opacity: 0.9;
     }
 
+    /* Menu Navigation */
+    .menu {
+      background: white;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .menu a {
+      color: #32a852;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      display: inline-block;
+    }
+
+    .menu a:hover {
+      color: #267c3e;
+      text-decoration: underline;
+    }
+
     /* Trust Badges */
     .trust-badges {
       background: white;
@@ -533,6 +558,11 @@
         padding: 40px 16px;
       }
       
+      .menu a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
+      
       .product-grid {
         gap: 20px;
       }
@@ -569,6 +599,11 @@
         font-size: 11px;
       }
       
+      .menu a {
+        margin: 0 8px;
+        font-size: 12px;
+      }
+      
       .product-card h3 {
         font-size: 1.1rem;
       }
@@ -602,6 +637,15 @@
 </head>
 <body>
 
+<!-- Menu Navigation -->
+<div class="menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="https://anydiel.site/Shop">🛒 Shop</a>
+  <a href="videos.html">📹 Videos</a>
+  <a href="contact.html">📞 Contact</a>
+  <a href="https://facebook.com/Anydiel1982" target="_blank">📘 Facebook</a>
+</div>
+
 <div class="hero">
   <div class="container">
     <a href="https://anydiel.site" target="_blank" rel="noopener noreferrer">
@@ -612,7 +656,7 @@
   </div>
 </div>
 
-<!-- CISS Upgrade Promo Banner (NEW) -->
+<!-- CISS Upgrade Promo Banner -->
 <div class="ciss-promo">
   <div class="promo-badge">🔥 LIMITED TIME OFFER 🔥</div>
   <h2>Upgrade Your Canon Printer to CISS</h2>
