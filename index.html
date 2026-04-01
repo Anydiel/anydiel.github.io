@@ -942,28 +942,23 @@
     e.stopPropagation();
     banner.style.display = 'none';
   });
-</script>
-
-  <script type="module">
+</script>  
+<script type="module">
   import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
 
   Typebot.initBubble({
     typebot: "anydiel-it-services-bot-9zmf6jl",
+    previewMessage: {
+      message: "I have a question for you!",
+      autoShowDelay: 10000,
+      avatarUrl:
+        "https://s3.typebot.io/public/workspaces/cmneywzd6000m04juk1preewj/typebots/cmnfxrl5l000004l109zmf6jl/hostAvatar?v=1775049684823",
+    },
     theme: {
-      button: {
-        backgroundColor: "#32a852",
-        iconColor: "#ffffff",
-        size: "medium",
-        placement: "bottom-right"
-      },
-      chatWindow: {
-        backgroundColor: "#ffffff",
-        width: 400,
-        height: 600
-      }
-    }
+      button: { backgroundColor: "#1D1D1D" },
+      chatWindow: { backgroundColor: "#F8F8F8" },
+    },
   });
-</script>
-  
+</script>  
 </body>
 </html>
