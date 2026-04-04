@@ -24,20 +24,32 @@
             padding: 20px;
         }
 
-        /* Header with Image */
+        /* Header with Image - FIXED SIZE */
         .hero {
             background: white;
             border-radius: 32px;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
             margin-bottom: 40px;
             box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
         }
 
         .hero-image {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
-            border-radius: 24px;
+            border-radius: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* For mobile screens */
+        @media (max-width: 768px) {
+            .hero-image {
+                max-width: 100%;
+            }
+            .hero {
+                padding: 20px;
+            }
         }
 
         /* Two Column Layout */
@@ -189,7 +201,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Hero Image Section -->
+        <!-- Hero Image Section - FIXED SIZE -->
         <div class="hero">
             <img src="https://anydiel.site/Shop/wp-content/uploads/2026/03/Anydiel-CISS-promo-p.png" 
                  alt="CISS Installation Promo - Save from ₱2,600 to ₱1,800 with FREE Repair and Home Service"
@@ -223,10 +235,10 @@
                 </div>
             </div>
 
-            <!-- Right: CTA Button linking directly to your checkout -->
+            <!-- Right: CTA Button -->
             <div class="cta-box">
                 <h3>📦 Claim Your CISS Package</h3>
-                <p style="margin-bottom: 10px;">Click the button below to proceed to checkout. It takes less than 2 minutes!</p>
+                <p style="margin-bottom: 10px;">Click the button below to get started. It takes less than 2 minutes!</p>
                 <a href="https://anydiel.site/Shop/checkout/?add-to-cart=59" target="_blank" class="cta-button">
                     🚀 CLAIM THIS DEAL NOW →
                 </a>
