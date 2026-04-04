@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Anydiel IT Services - CISS Installation Promo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header with Image */
+        .hero {
+            background: white;
+            border-radius: 32px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+        }
+
+        /* Two Column Layout */
+        .funnel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .funnel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Column - Offer Details */
+        .offer-box {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-list li::before {
+            content: "✅";
+            font-size: 1.2rem;
+        }
+
+        .timer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            border-radius: 16px;
+            margin: 24px 0;
+        }
+
+        .timer span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .compatible-box {
+            background: #eff6ff;
+            padding: 16px;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+
+        .voucher-code {
+            background: #fef3c7;
+            border: 2px dashed #f59e0b;
+            text-align: center;
+            padding: 12px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Right Column - Form CTA */
+        .cta-box {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: sticky;
+            top: 20px;
+        }
+
+        .cta-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #1e3a5f;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 18px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            margin: 20px 0;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+            transform: scale(1.02);
+        }
+
+        .cta-note {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 16px;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .payment-icons span {
+            background: #f3f4f6;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Image Section -->
+        <div class="hero">
+            <img src="https://anydiel.site/Shop/wp-content/uploads/2026/03/Anydiel-CISS-promo-p.png" 
+                 alt="CISS Installation Promo - Save from ₱2,600 to ₱1,800 with FREE Repair and Home Service"
+                 class="hero-image">
+        </div>
+
+        <!-- Main Grid -->
+        <div class="funnel-grid">
+            <!-- Left: Offer Details -->
+            <div class="offer-box">
+                <div class="timer">
+                    ⏰ Offer ends in: <span id="countdown">00:00:00</span>
+                </div>
+
+                <div class="voucher-code">
+                    🎟️ Use Voucher: <span style="color:#2563eb;">REFILL2026</span>
+                </div>
+
+                <ul class="feature-list">
+                    <li><strong>FREE Home Service Installation</strong> — We come to you!</li>
+                    <li><strong>FREE Extra 100ml Black Ink</strong> — Value ₱200</li>
+                    <li><strong>FREE Printer Repair Check</strong> — We diagnose issues</li>
+                    <li><strong>2-Week Warranty</strong> — Peace of mind guaranteed</li>
+                    <li><strong>Save ₱7.40 per page</strong> vs expensive cartridges</li>
+                    <li><strong>Eco-Friendly</strong> — Less plastic waste</li>
+                </ul>
+
+                <div class="compatible-box">
+                    <p style="font-weight: 600; margin-bottom: 8px;">✅ Compatible Printers:</p>
+                    <p style="font-size: 0.9rem;">Canon TS207, MG3070, MG2570, E410, E460, E4270, MP237, IP2770</p>
+                </div>
+            </div>
+
+            <!-- Right: CTA Button linking directly to your checkout -->
+            <div class="cta-box">
+                <h3>📦 Claim Your CISS Package</h3>
+                <p style="margin-bottom: 10px;">Click the button below to proceed to checkout. It takes less than 2 minutes!</p>
+                <a href="https://anydiel.site/Shop/checkout/?add-to-cart=59" target="_blank" class="cta-button">
+                    🚀 CLAIM THIS DEAL NOW →
+                </a>
+                <p class="cta-note">⏱️ Secure checkout • Pay via GCash, Maya, or Credit Card</p>
+                <div style="margin-top: 20px;">
+                    <p style="font-size: 0.8rem;">✅ 50+ satisfied customers in Quezon City</p>
+                    <p style="font-size: 0.8rem;">✅ Free home service included</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Section -->
+        <div class="trust-section">
+            <h3>🔒 Safe & Secure</h3>
+            <p>Your information is protected. We never share your data.</p>
+            <div class="payment-icons">
+                <span>💳 GCash</span>
+                <span>🏦 Maya</span>
+                <span>💳 Credit Card</span>
+                <span>📱 BillEase (0% Interest)</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Anydiel IT Services. All rights reserved. | Quezon City, Metro Manila</p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown to April 15, 2026
+        function updateCountdown() {
+            const targetDate = new Date(2026, 3, 15, 23, 59, 59);
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "EXPIRED";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
