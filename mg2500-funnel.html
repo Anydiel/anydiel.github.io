@@ -83,4 +83,66 @@
             document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
         updateCountdown();
-        setInterval(updateCountdown
+        setInterval(updateCountdown, 1000);
+    </script>
+    
+    <!-- KALI HYBRID AI CHAT BUBBLE - MOBILE OPTIMIZED -->
+    <style>
+        .kali-chat-container { position: fixed; bottom: 16px; right: 16px; z-index: 99998; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .kali-chat-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .kali-bubble { background: linear-gradient(135deg, rgba(10,15,31,0.95), rgba(13,20,40,0.98)); backdrop-filter: blur(16px); border: 1.5px solid rgba(0,255,255,0.7); border-radius: 60px; padding: 8px 18px; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 20px rgba(0,255,255,0.3); }
+        .ai-pulse { width: 8px; height: 8px; background: #0ff; border-radius: 50%; animation: kaliPulse 1.5s infinite; }
+        @keyframes kaliPulse { 0% { box-shadow: 0 0 0 0 rgba(0,255,255,0.6); } 70% { box-shadow: 0 0 0 8px rgba(0,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(0,255,255,0); } }
+        .kali-name { font-weight: 800; font-size: 0.85rem; background: linear-gradient(135deg, #fff, #a855f7); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .hybrid-badge { font-size: 0.55rem; background: rgba(0,255,255,0.15); border: 0.5px solid rgba(0,255,255,0.4); padding: 3px 8px; border-radius: 40px; color: #0ff; }
+        .sparkle { font-size: 0.85rem; animation: kaliSpark 2s infinite; }
+        @keyframes kaliSpark { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-2px); text-shadow: 0 0 4px #f0f; } }
+        .kali-teaser-card { position: absolute; bottom: 70px; right: 0; background: linear-gradient(135deg, #0d1428, #080e22); backdrop-filter: blur(20px); border: 1px solid rgba(0,255,255,0.5); border-radius: 20px; padding: 10px 14px; max-width: 260px; width: max-content; cursor: pointer; animation: kaliCardGlow 3s infinite; transition: opacity 0.3s ease; }
+        .kali-chat-container.hidden .kali-teaser-card { opacity: 0; pointer-events: none; }
+        @keyframes kaliCardGlow { 0% { border-color: rgba(0,255,255,0.4); } 50% { border-color: #a855f7; } 100% { border-color: rgba(0,255,255,0.4); } }
+        .kali-teaser-avatar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .kali-avatar-icon { width: 32px; height: 32px; background: linear-gradient(145deg, #1e2a4a, #0a0f1f); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #0ff; font-size: 1rem; }
+        .kali-teaser-badge { font-size: 0.55rem; color: #0ff; background: rgba(0,255,255,0.1); padding: 2px 8px; border-radius: 30px; }
+        .kali-teaser-message { color: #e2e8f0; font-size: 0.75rem; font-weight: 500; margin: 6px 0 3px; line-height: 1.3; }
+        .kali-teaser-hint { font-size: 0.55rem; color: #7e8aa8; border-top: 0.5px solid rgba(0,255,255,0.2); padding-top: 5px; display: flex; justify-content: space-between; }
+        .kali-typebot-popup { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; height: 80vh; max-width: 100%; max-height: 80vh; background: #0a0f1f; border-radius: 20px 20px 0 0; box-shadow: 0 -5px 25px rgba(0,0,0,0.5); z-index: 99999; display: none; overflow: hidden; animation: popupSlideUp 0.3s ease; }
+        @keyframes popupSlideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .kali-popup-close { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; background: rgba(0,0,0,0.7); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100000; font-size: 16px; color: #0ff; border: 1px solid rgba(0,255,255,0.5); }
+        .kali-typebot-popup iframe { width: 100%; height: 100%; border: none; }
+        @media (min-width: 769px) {
+            .kali-chat-container { bottom: 28px; right: 28px; }
+            .kali-bubble { padding: 12px 24px; gap: 12px; }
+            .kali-name { font-size: 1rem; }
+            .hybrid-badge { font-size: 0.65rem; padding: 4px 10px; }
+            .kali-teaser-card { bottom: 80px; max-width: 320px; padding: 14px 20px; }
+            .kali-teaser-message { font-size: 0.85rem; }
+            .kali-typebot-popup { bottom: 100px; right: 100px; left: auto; width: 400px; height: 600px; border-radius: 24px; animation: popupFadeIn 0.2s ease; }
+            @keyframes popupFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        }
+    </style>
+    <div class="kali-chat-container" id="kaliChatContainer">
+        <div class="kali-teaser-card" id="kaliTeaserCard">
+            <div class="kali-teaser-avatar"><div class="kali-avatar-icon">🧠</div><div><span class="kali-teaser-badge">⚡ KALI · hybrid AI ⚡</span></div></div>
+            <div class="kali-teaser-message" id="kaliRotatingTeaser">💬 Canon MG2500 with CISS? I can help! 😉</div>
+            <div class="kali-teaser-hint"><span>✨ click to chat</span><span>→</span></div>
+        </div>
+        <div class="kali-bubble" id="kaliBubble"><div class="ai-pulse"></div><span class="kali-name">KALI</span><span class="hybrid-badge">CISS expert</span><span class="sparkle">✨</span></div>
+    </div>
+    <div id="kaliTypebotPopup" class="kali-typebot-popup"><div class="kali-popup-close" id="kaliPopupClose">✕</div><iframe id="kaliTypebotIframe" src="https://typebot.co/my-typebot-r73tdqv" allow="microphone; camera; clipboard-write;"></iframe></div>
+    <script>
+    (function() {
+        var teasers = ["💬 Canon MG2500 with CISS? Ask me anything! 😉","⚡ Save 70% on ink costs — I'll show you how.","🧠 CISS vs cartridges? I'll explain the difference.","🔮 Want to know if MG2500 fits your needs? Ask KALI...","💡 3-month warranty + FREE home service included 🤍","🚀 Print up to 4,000 pages per refill!","✨ FREE 100ml black ink + color ink set included.","🖨️ Print, Scan, Copy — All-in-One with CISS!"];
+        var idx = 0, teaserEl = document.getElementById('kaliRotatingTeaser'), teaserCard = document.getElementById('kaliTeaserCard'), kaliBubble = document.getElementById('kaliBubble'), popup = document.getElementById('kaliTypebotPopup'), iframe = document.getElementById('kaliTypebotIframe'), closeBtn = document.getElementById('kaliPopupClose'), container = document.getElementById('kaliChatContainer'), isOpen = false;
+        if (teaserEl) { setInterval(function() { idx = (idx + 1) % teasers.length; teaserEl.style.transition = 'opacity 0.2s'; teaserEl.style.opacity = '0'; setTimeout(function() { teaserEl.textContent = teasers[idx]; teaserEl.style.opacity = '1'; }, 150); }, 5000); }
+        function openChat() { popup.style.display = 'block'; isOpen = true; if (container) container.classList.add('hidden'); iframe.src = iframe.src; }
+        function closeChat() { popup.style.display = 'none'; isOpen = false; if (container) container.classList.remove('hidden'); }
+        function toggleChat() { if (isOpen) closeChat(); else openChat(); }
+        if (closeBtn) closeBtn.onclick = function(e) { e.stopPropagation(); closeChat(); };
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen) closeChat(); });
+        if (kaliBubble) kaliBubble.onclick = function(e) { e.stopPropagation(); toggleChat(); kaliBubble.style.transform = 'scale(0.97)'; setTimeout(function() { kaliBubble.style.transform = ''; }, 120); };
+        if (teaserCard) teaserCard.onclick = function(e) { e.stopPropagation(); toggleChat(); teaserCard.style.transform = 'scale(0.98)'; setTimeout(function() { teaserCard.style.transform = ''; }, 120); };
+        setTimeout(function() { if (teaserCard) { teaserCard.style.opacity = '0'; teaserCard.style.transform = 'translateY(10px)'; setTimeout(function() { teaserCard.style.transition = 'opacity 0.4s, transform 0.3s'; teaserCard.style.opacity = '1'; teaserCard.style.transform = 'translateY(0)'; }, 100); } }, 500);
+    })();
+    </script>
+</body>
+</html>
