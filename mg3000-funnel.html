@@ -232,20 +232,24 @@
     
     <!-- ============================================ -->
     <!-- KALI HYBRID AI CHAT BUBBLE                   -->
-    <!-- Using your Typebot ID: my-typebot-r73tdqv    -->
-    <!-- Dedicated to my granddaughter 🤍             -->
+    <!-- Using Typebot ID: my-typebot-r73tdqv         -->
+    <!-- FIXED: Bubble hides when Typebot opens       -->
     <!-- ============================================ -->
 
     <style>
-        /* KALI CHAT BUBBLE STYLES - Fully Responsive */
         .kali-chat-container {
             position: fixed;
             bottom: 28px;
             right: 28px;
             z-index: 99998;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-
+        .kali-chat-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
         .kali-bubble {
             background: linear-gradient(135deg, rgba(10, 15, 31, 0.95), rgba(13, 20, 40, 0.98));
             backdrop-filter: blur(16px);
@@ -259,13 +263,11 @@
             transition: all 0.3s ease;
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
         }
-
         .kali-bubble:hover {
             transform: scale(1.05);
             border-color: #a855f7;
             box-shadow: 0 0 35px rgba(168, 85, 247, 0.5);
         }
-
         .ai-pulse {
             width: 10px;
             height: 10px;
@@ -273,13 +275,11 @@
             border-radius: 50%;
             animation: kaliPulse 1.5s infinite;
         }
-
         @keyframes kaliPulse {
             0% { box-shadow: 0 0 0 0 rgba(0,255,255,0.6); }
             70% { box-shadow: 0 0 0 10px rgba(0,255,255,0); }
             100% { box-shadow: 0 0 0 0 rgba(0,255,255,0); }
         }
-
         .kali-name {
             font-weight: 800;
             font-size: 1rem;
@@ -288,7 +288,6 @@
             -webkit-background-clip: text;
             color: transparent;
         }
-
         .hybrid-badge {
             font-size: 0.65rem;
             background: rgba(0,255,255,0.15);
@@ -297,17 +296,14 @@
             border-radius: 40px;
             color: #0ff;
         }
-
         .sparkle {
             font-size: 1rem;
             animation: kaliSpark 2s infinite;
         }
-
         @keyframes kaliSpark {
             0%,100% { transform: translateY(0px); }
             50% { transform: translateY(-3px); text-shadow: 0 0 6px #f0f; }
         }
-
         .kali-teaser-card {
             position: absolute;
             bottom: 80px;
@@ -322,20 +318,17 @@
             cursor: pointer;
             animation: kaliCardGlow 3s infinite;
         }
-
         @keyframes kaliCardGlow {
             0% { border-color: rgba(0,255,255,0.4); }
             50% { border-color: #a855f7; }
             100% { border-color: rgba(0,255,255,0.4); }
         }
-
         .kali-teaser-avatar {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 10px;
         }
-
         .kali-avatar-icon {
             width: 40px;
             height: 40px;
@@ -347,7 +340,6 @@
             border: 1px solid #0ff;
             font-size: 1.3rem;
         }
-
         .kali-teaser-badge {
             font-size: 0.65rem;
             color: #0ff;
@@ -355,14 +347,12 @@
             padding: 2px 10px;
             border-radius: 30px;
         }
-
         .kali-teaser-message {
             color: #e2e8f0;
             font-size: 0.85rem;
             font-weight: 500;
             margin: 8px 0 4px;
         }
-
         .kali-teaser-hint {
             font-size: 0.6rem;
             color: #7e8aa8;
@@ -371,8 +361,6 @@
             display: flex;
             justify-content: space-between;
         }
-
-        /* Typebot Popup */
         .kali-typebot-popup {
             position: fixed;
             bottom: 100px;
@@ -389,7 +377,6 @@
             overflow: hidden;
             animation: popupFadeIn 0.2s ease;
         }
-
         @media (max-width: 768px) {
             .kali-typebot-popup {
                 position: fixed;
@@ -404,19 +391,16 @@
                 border-radius: 24px 24px 0 0;
             }
         }
-
         @keyframes popupFadeIn {
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
-
         @media (max-width: 768px) {
             @keyframes popupFadeIn {
                 from { opacity: 0; transform: translateY(100%); }
                 to { opacity: 1; transform: translateY(0); }
             }
         }
-
         .kali-popup-close {
             position: absolute;
             top: 12px;
@@ -435,19 +419,16 @@
             transition: all 0.2s;
             border: 1px solid rgba(0,255,255,0.5);
         }
-
         .kali-popup-close:hover {
             background: rgba(255,0,0,0.4);
             border-color: #ff4444;
             color: #ff4444;
         }
-
         .kali-typebot-popup iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
-
         @media (max-width: 768px) {
             .kali-chat-container { bottom: 16px; right: 16px; }
             .kali-bubble { padding: 8px 16px; }
@@ -455,14 +436,13 @@
             .hybrid-badge { font-size: 0.55rem; padding: 2px 8px; }
             .kali-teaser-card { bottom: 70px; max-width: 260px; }
         }
-
         @media (max-width: 480px) {
             .hybrid-badge { display: none; }
             .kali-teaser-card { max-width: 240px; }
         }
     </style>
 
-    <div class="kali-chat-container">
+    <div class="kali-chat-container" id="kaliChatContainer">
         <div class="kali-teaser-card" id="kaliTeaserCard">
             <div class="kali-teaser-avatar">
                 <div class="kali-avatar-icon">🧠</div>
@@ -479,7 +459,6 @@
         </div>
     </div>
 
-    <!-- Typebot Popup Container - USING YOUR TYPEBOT ID -->
     <div id="kaliTypebotPopup" class="kali-typebot-popup">
         <div class="kali-popup-close" id="kaliPopupClose">✕</div>
         <iframe id="kaliTypebotIframe" src="https://typebot.co/my-typebot-r73tdqv" allow="microphone; camera; clipboard-write;"></iframe>
@@ -487,7 +466,6 @@
 
     <script>
     (function() {
-        // Product-Focused Teasing Messages for KALI - Canon MG3000 Series
         var teasers = [
             "💬 Canon MG3000 with Wi-Fi & CISS? Ask me anything! 😉",
             "⚡ Save 70% on ink costs — I'll show you how.",
@@ -496,8 +474,7 @@
             "💡 3-month warranty + FREE home service included 🤍",
             "🚀 Print up to 4,000 pages per refill!",
             "✨ FREE 100ml black ink + color ink set included.",
-            "📱 Mobile printing via Canon PRINT app — I can help set it up!",
-            "🛠️ Wi-Fi setup guide? Printer installation? I know it all."
+            "📱 Mobile printing via Canon PRINT app — I can help set it up!"
         ];
         
         var idx = 0;
@@ -507,9 +484,9 @@
         var popup = document.getElementById('kaliTypebotPopup');
         var iframe = document.getElementById('kaliTypebotIframe');
         var closeBtn = document.getElementById('kaliPopupClose');
+        var container = document.getElementById('kaliChatContainer');
         var isOpen = false;
         
-        // Rotate teasers every 5 seconds
         if (teaserEl) {
             setInterval(function() {
                 idx = (idx + 1) % teasers.length;
@@ -522,64 +499,30 @@
             }, 5000);
         }
         
-        // Open Typebot
         function openChat() {
             popup.style.display = 'block';
             isOpen = true;
-            // Refresh iframe to ensure fresh chat
+            if (container) container.classList.add('hidden');
             iframe.src = iframe.src;
         }
         
-        // Close Typebot
         function closeChat() {
             popup.style.display = 'none';
             isOpen = false;
+            if (container) container.classList.remove('hidden');
         }
         
-        // Toggle chat
         function toggleChat() {
-            if (isOpen) {
-                closeChat();
-            } else {
-                openChat();
-            }
+            if (isOpen) closeChat();
+            else openChat();
         }
         
-        // Close button click
-        if (closeBtn) {
-            closeBtn.onclick = function(e) {
-                e.stopPropagation();
-                closeChat();
-            };
-        }
+        if (closeBtn) closeBtn.onclick = function(e) { e.stopPropagation(); closeChat(); };
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen) closeChat(); });
         
-        // Escape key to close
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && isOpen) {
-                closeChat();
-            }
-        });
+        if (kaliBubble) kaliBubble.onclick = function(e) { e.stopPropagation(); toggleChat(); kaliBubble.style.transform = 'scale(0.97)'; setTimeout(function() { kaliBubble.style.transform = ''; }, 120); };
+        if (teaserCard) teaserCard.onclick = function(e) { e.stopPropagation(); toggleChat(); teaserCard.style.transform = 'scale(0.98)'; setTimeout(function() { teaserCard.style.transform = ''; }, 120); };
         
-        // Attach click events to KALI bubble and teaser card
-        if (kaliBubble) {
-            kaliBubble.onclick = function(e) {
-                e.stopPropagation();
-                toggleChat();
-                kaliBubble.style.transform = 'scale(0.97)';
-                setTimeout(function() { kaliBubble.style.transform = ''; }, 120);
-            };
-        }
-        
-        if (teaserCard) {
-            teaserCard.onclick = function(e) {
-                e.stopPropagation();
-                toggleChat();
-                teaserCard.style.transform = 'scale(0.98)';
-                setTimeout(function() { teaserCard.style.transform = ''; }, 120);
-            };
-        }
-        
-        // Entrance animation for teaser card
         setTimeout(function() {
             if (teaserCard) {
                 teaserCard.style.opacity = '0';
@@ -592,9 +535,8 @@
             }
         }, 500);
         
-        console.log('🤍 KALI Hybrid AI ready — Canon MG3000 Series · Typebot ID: my-typebot-r73tdqv');
+        console.log('🤍 KALI Hybrid AI ready — Canon MG3000 Series');
     })();
     </script>
-
 </body>
 </html>
