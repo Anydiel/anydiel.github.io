@@ -556,44 +556,52 @@
     </script>
     
     <!-- ============================================ -->
-    <!-- KALI HYBRID AI CHAT BUBBLE - FUTURISTIC DESIGN -->
+    <!-- KALI HYBRID AI CHAT BUBBLE - MOBILE OPTIMIZED -->
     <!-- Dedicated to my granddaughter 🤍             -->
-    <!-- Replaces previous Typebot with KALI branding -->
+    <!-- Using Typebot ID: ciss-promo-funnel-qnx6jwi  -->
+    <!-- FIXED: Bubble hides when Typebot opens       -->
     <!-- ============================================ -->
     
     <style>
-        /* KALI CHAT BUBBLE STYLES - Fully Responsive, No Global Interference */
+        /* KALI CHAT BUBBLE STYLES - Mobile First */
         .kali-chat-container {
             position: fixed;
-            bottom: 28px;
-            right: 28px;
+            bottom: 16px;
+            right: 16px;
             z-index: 99998;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .kali-chat-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
         .kali-bubble {
             background: linear-gradient(135deg, rgba(10, 15, 31, 0.95), rgba(13, 20, 40, 0.98));
             backdrop-filter: blur(16px);
             border: 1.5px solid rgba(0, 255, 255, 0.7);
-            border-radius: 80px;
-            padding: 12px 24px;
+            border-radius: 60px;
+            padding: 8px 18px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         .kali-bubble:hover {
             transform: scale(1.05);
             border-color: #a855f7;
-            box-shadow: 0 0 35px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
         }
 
         .ai-pulse {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: #0ff;
             border-radius: 50%;
             animation: kaliPulse 1.5s infinite;
@@ -601,13 +609,13 @@
 
         @keyframes kaliPulse {
             0% { box-shadow: 0 0 0 0 rgba(0,255,255,0.6); }
-            70% { box-shadow: 0 0 0 10px rgba(0,255,255,0); }
+            70% { box-shadow: 0 0 0 8px rgba(0,255,255,0); }
             100% { box-shadow: 0 0 0 0 rgba(0,255,255,0); }
         }
 
         .kali-name {
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 0.85rem;
             background: linear-gradient(135deg, #fff, #a855f7);
             background-clip: text;
             -webkit-background-clip: text;
@@ -615,37 +623,43 @@
         }
 
         .hybrid-badge {
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             background: rgba(0,255,255,0.15);
             border: 0.5px solid rgba(0,255,255,0.4);
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 40px;
             color: #0ff;
         }
 
         .sparkle {
-            font-size: 1rem;
+            font-size: 0.85rem;
             animation: kaliSpark 2s infinite;
         }
 
         @keyframes kaliSpark {
             0%,100% { transform: translateY(0px); }
-            50% { transform: translateY(-3px); text-shadow: 0 0 6px #f0f; }
+            50% { transform: translateY(-2px); text-shadow: 0 0 4px #f0f; }
         }
 
         .kali-teaser-card {
             position: absolute;
-            bottom: 80px;
+            bottom: 70px;
             right: 0;
             background: linear-gradient(135deg, #0d1428, #080e22);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0,255,255,0.5);
-            border-radius: 24px;
-            padding: 14px 20px;
-            max-width: 320px;
+            border-radius: 20px;
+            padding: 10px 14px;
+            max-width: 260px;
             width: max-content;
             cursor: pointer;
             animation: kaliCardGlow 3s infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .kali-chat-container.hidden .kali-teaser-card {
+            opacity: 0;
+            pointer-events: none;
         }
 
         @keyframes kaliCardGlow {
@@ -657,97 +671,78 @@
         .kali-teaser-avatar {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
+            gap: 8px;
+            margin-bottom: 6px;
         }
 
         .kali-avatar-icon {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: linear-gradient(145deg, #1e2a4a, #0a0f1f);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid #0ff;
-            font-size: 1.3rem;
+            font-size: 1rem;
         }
 
         .kali-teaser-badge {
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             color: #0ff;
             background: rgba(0,255,255,0.1);
-            padding: 2px 10px;
+            padding: 2px 8px;
             border-radius: 30px;
         }
 
         .kali-teaser-message {
             color: #e2e8f0;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            margin: 8px 0 4px;
+            margin: 6px 0 3px;
+            line-height: 1.3;
         }
 
         .kali-teaser-hint {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: #7e8aa8;
             border-top: 0.5px solid rgba(0,255,255,0.2);
-            padding-top: 6px;
+            padding-top: 5px;
             display: flex;
             justify-content: space-between;
         }
 
-        /* Typebot Popup - Desktop */
+        /* Typebot Popup - Mobile Optimized */
         .kali-typebot-popup {
             position: fixed;
-            bottom: 100px;
-            right: 100px;
-            width: 400px;
-            height: 600px;
-            max-width: calc(100vw - 120px);
-            max-height: calc(100vh - 140px);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: auto;
+            width: 100%;
+            height: 80vh;
+            max-width: 100%;
+            max-height: 80vh;
             background: #0a0f1f;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,255,255,0.3);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,255,255,0.3);
             z-index: 99999;
             display: none;
             overflow: hidden;
-            animation: popupFadeIn 0.2s ease;
+            animation: popupSlideUp 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .kali-typebot-popup {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                top: auto;
-                width: 100%;
-                height: 85vh;
-                max-width: 100%;
-                max-height: 85vh;
-                border-radius: 24px 24px 0 0;
-            }
-        }
-
-        @keyframes popupFadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            @keyframes popupFadeIn {
-                from { opacity: 0; transform: translateY(100%); }
-                to { opacity: 1; transform: translateY(0); }
-            }
+        @keyframes popupSlideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
         }
 
         .kali-popup-close {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 32px;
-            height: 32px;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
             background: rgba(0,0,0,0.7);
             border-radius: 50%;
             display: flex;
@@ -755,7 +750,7 @@
             justify-content: center;
             cursor: pointer;
             z-index: 100000;
-            font-size: 18px;
+            font-size: 16px;
             color: #0ff;
             transition: all 0.2s;
             border: 1px solid rgba(0,255,255,0.5);
@@ -773,21 +768,73 @@
             border: none;
         }
 
-        @media (max-width: 768px) {
-            .kali-chat-container { bottom: 16px; right: 16px; }
-            .kali-bubble { padding: 8px 16px; }
-            .kali-name { font-size: 0.8rem; }
-            .hybrid-badge { font-size: 0.55rem; padding: 2px 8px; }
-            .kali-teaser-card { bottom: 70px; max-width: 260px; }
+        /* Desktop adjustments */
+        @media (min-width: 769px) {
+            .kali-chat-container {
+                bottom: 28px;
+                right: 28px;
+            }
+            .kali-bubble {
+                padding: 12px 24px;
+                gap: 12px;
+            }
+            .kali-name {
+                font-size: 1rem;
+            }
+            .hybrid-badge {
+                font-size: 0.65rem;
+                padding: 4px 10px;
+            }
+            .kali-teaser-card {
+                bottom: 80px;
+                max-width: 320px;
+                padding: 14px 20px;
+            }
+            .kali-teaser-message {
+                font-size: 0.85rem;
+            }
+            .kali-typebot-popup {
+                bottom: 100px;
+                right: 100px;
+                left: auto;
+                width: 400px;
+                height: 600px;
+                border-radius: 24px;
+                animation: popupFadeIn 0.2s ease;
+            }
+            @keyframes popupFadeIn {
+                from { opacity: 0; transform: scale(0.95); }
+                to { opacity: 1; transform: scale(1); }
+            }
         }
 
-        @media (max-width: 480px) {
-            .hybrid-badge { display: none; }
-            .kali-teaser-card { max-width: 240px; }
+        /* Very small screens */
+        @media (max-width: 380px) {
+            .kali-chat-container {
+                bottom: 12px;
+                right: 12px;
+            }
+            .kali-bubble {
+                padding: 6px 14px;
+            }
+            .kali-name {
+                font-size: 0.75rem;
+            }
+            .kali-teaser-card {
+                bottom: 65px;
+                max-width: 220px;
+                padding: 8px 12px;
+            }
+            .kali-teaser-message {
+                font-size: 0.7rem;
+            }
+            .hybrid-badge {
+                display: none;
+            }
         }
     </style>
 
-    <div class="kali-chat-container">
+    <div class="kali-chat-container" id="kaliChatContainer">
         <div class="kali-teaser-card" id="kaliTeaserCard">
             <div class="kali-teaser-avatar">
                 <div class="kali-avatar-icon">🧠</div>
@@ -804,7 +851,7 @@
         </div>
     </div>
 
-    <!-- Typebot Popup Container - Using your original Typebot ID -->
+    <!-- Typebot Popup Container - Using your Typebot ID -->
     <div id="kaliTypebotPopup" class="kali-typebot-popup">
         <div class="kali-popup-close" id="kaliPopupClose">✕</div>
         <iframe id="kaliTypebotIframe" src="https://typebot.co/ciss-promo-funnel-qnx6jwi" allow="microphone; camera; clipboard-write;"></iframe>
@@ -831,6 +878,7 @@
         var popup = document.getElementById('kaliTypebotPopup');
         var iframe = document.getElementById('kaliTypebotIframe');
         var closeBtn = document.getElementById('kaliPopupClose');
+        var container = document.getElementById('kaliChatContainer');
         var isOpen = false;
         
         // Rotate teasers every 5 seconds
@@ -846,23 +894,25 @@
             }, 5000);
         }
         
-        // Open Typebot
+        // Open Typebot - HIDE the KALI bubble container
         function openChat() {
             popup.style.display = 'block';
             isOpen = true;
-            document.body.classList.add('kali-popup-open');
-            // Refresh iframe to ensure fresh chat
+            if (container) {
+                container.classList.add('hidden');
+            }
             iframe.src = iframe.src;
         }
         
-        // Close Typebot
+        // Close Typebot - SHOW the KALI bubble container again
         function closeChat() {
             popup.style.display = 'none';
             isOpen = false;
-            document.body.classList.remove('kali-popup-open');
+            if (container) {
+                container.classList.remove('hidden');
+            }
         }
         
-        // Toggle chat
         function toggleChat() {
             if (isOpen) {
                 closeChat();
@@ -878,14 +928,6 @@
                 closeChat();
             };
         }
-        
-        // Click outside to close (desktop only, prevents accidental close on mobile)
-        document.addEventListener('click', function(e) {
-            var isMobile = window.innerWidth <= 768;
-            if (isOpen && !isMobile && !popup.contains(e.target) && !kaliBubble.contains(e.target) && !teaserCard.contains(e.target)) {
-                closeChat();
-            }
-        });
         
         // Escape key to close
         document.addEventListener('keydown', function(e) {
