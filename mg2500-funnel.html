@@ -70,20 +70,111 @@
         </div>
         <div class="footer"><p>© 2026 Anydiel IT Services | Quezon City, Metro Manila</p><p><a href="https://anydiel.site">Main Website</a> | <a href="https://catalog.anydiel.site">Catalog</a> | <a href="https://wa.me/639677168135">WhatsApp</a></p></div>
     </div>
+    
     <script>
-        function updateCountdown() {
-            const targetDate = new Date(2026, 3, 15, 23, 59, 59);
-            const now = new Date();
-            const diff = targetDate - now;
-            if (diff <= 0) { document.getElementById('countdown').innerHTML = "EXPIRED"; return; }
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        // ============================================
+        // AUTO-RENEWING COUNTDOWN TIMER
+        // Saves expiration date in localStorage
+        // Automatically adds 7 days when expired
+        // ============================================
+        
+        (function() {
+            const STORAGE_KEY = 'mg2500_promo_expiry';
+            const RENEW_DAYS = 7;  // Auto-renew for 7 more days when expired
+            
+            // Get stored expiry date or create a new one
+            function getExpiryDate() {
+                let stored = localStorage.getItem(STORAGE_KEY);
+                
+                if (stored) {
+                    const parsedDate = new Date(stored);
+                    // Check if it's a valid date and not expired yet
+                    if (!isNaN(parsedDate.getTime())) {
+                        return parsedDate;
+                    }
+                }
+                
+                // No valid stored date - create a new one (7 days from now)
+                return addDaysToNow(RENEW_DAYS);
+            }
+            
+            // Helper: Add X days to current time
+            function addDaysToNow(days) {
+                const date = new Date();
+                date.setDate(date.getDate() + days);
+                // Set to end of day (23:59:59)
+                date.setHours(23, 59, 59, 999);
+                return date;
+            }
+            
+            // Save expiry date to localStorage
+            function saveExpiryDate(date) {
+                localStorage.setItem(STORAGE_KEY, date.toISOString());
+            }
+            
+            // Renew the promo (add more days)
+            function renewPromo() {
+                const newExpiry = addDaysToNow(RENEW_DAYS);
+                saveExpiryDate(newExpiry);
+                return newExpiry;
+            }
+            
+            // Update the countdown display
+            function updateCountdownDisplay(targetDate) {
+                const now = new Date();
+                const diff = targetDate - now;
+                
+                const countdownElement = document.getElementById('countdown');
+                if (!countdownElement) return;
+                
+                // If expired or diff is negative
+                if (diff <= 0) {
+                    // Auto-renew the promo
+                    const newExpiry = renewPromo();
+                    // Recursively update with new date
+                    updateCountdownDisplay(newExpiry);
+                    return;
+                }
+                
+                // Calculate time components
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                // Format the display
+                let displayText = '';
+                if (days > 0) {
+                    displayText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                } else if (hours > 0) {
+                    displayText = `${hours}h ${minutes}m ${seconds}s`;
+                } else if (minutes > 0) {
+                    displayText = `${minutes}m ${seconds}s`;
+                } else {
+                    displayText = `${seconds}s`;
+                }
+                
+                countdownElement.innerHTML = displayText;
+            }
+            
+            // Initialize and run the countdown
+            let expiryDate = getExpiryDate();
+            
+            // Save it if it was newly created
+            if (!localStorage.getItem(STORAGE_KEY)) {
+                saveExpiryDate(expiryDate);
+            }
+            
+            // Update display immediately and set interval
+            function tick() {
+                updateCountdownDisplay(expiryDate);
+                // Refresh expiryDate reference in case it was renewed
+                expiryDate = new Date(localStorage.getItem(STORAGE_KEY));
+            }
+            
+            tick();
+            setInterval(tick, 1000);
+        })();
     </script>
     
     <!-- KALI HYBRID AI CHAT BUBBLE - MOBILE OPTIMIZED -->
