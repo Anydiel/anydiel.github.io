@@ -103,112 +103,41 @@
     </div>
     
     <script>
-        // ============================================
-        // AUTO-RENEWING COUNTDOWN TIMER
-        // Saves expiration date in localStorage
-        // Automatically adds 7 days when expired
-        // ============================================
-        
         (function() {
             const STORAGE_KEY = 'ts200_promo_expiry';
-            const RENEW_DAYS = 7;  // Auto-renew for 7 more days when expired
-            
-            // Get stored expiry date or create a new one
+            const RENEW_DAYS = 7;
             function getExpiryDate() {
                 let stored = localStorage.getItem(STORAGE_KEY);
-                
-                if (stored) {
-                    const parsedDate = new Date(stored);
-                    // Check if it's a valid date and not expired yet
-                    if (!isNaN(parsedDate.getTime())) {
-                        return parsedDate;
-                    }
-                }
-                
-                // No valid stored date - create a new one (7 days from now)
+                if (stored) { const parsedDate = new Date(stored); if (!isNaN(parsedDate.getTime())) return parsedDate; }
                 return addDaysToNow(RENEW_DAYS);
             }
-            
-            // Helper: Add X days to current time
-            function addDaysToNow(days) {
-                const date = new Date();
-                date.setDate(date.getDate() + days);
-                // Set to end of day (23:59:59)
-                date.setHours(23, 59, 59, 999);
-                return date;
-            }
-            
-            // Save expiry date to localStorage
-            function saveExpiryDate(date) {
-                localStorage.setItem(STORAGE_KEY, date.toISOString());
-            }
-            
-            // Renew the promo (add more days)
-            function renewPromo() {
-                const newExpiry = addDaysToNow(RENEW_DAYS);
-                saveExpiryDate(newExpiry);
-                return newExpiry;
-            }
-            
-            // Update the countdown display
+            function addDaysToNow(days) { const date = new Date(); date.setDate(date.getDate() + days); date.setHours(23, 59, 59, 999); return date; }
+            function saveExpiryDate(date) { localStorage.setItem(STORAGE_KEY, date.toISOString()); }
+            function renewPromo() { const newExpiry = addDaysToNow(RENEW_DAYS); saveExpiryDate(newExpiry); return newExpiry; }
             function updateCountdownDisplay(targetDate) {
-                const now = new Date();
-                const diff = targetDate - now;
-                
+                const now = new Date(); const diff = targetDate - now;
                 const countdownElement = document.getElementById('countdown');
                 if (!countdownElement) return;
-                
-                // If expired or diff is negative
-                if (diff <= 0) {
-                    // Auto-renew the promo
-                    const newExpiry = renewPromo();
-                    // Recursively update with new date
-                    updateCountdownDisplay(newExpiry);
-                    return;
-                }
-                
-                // Calculate time components
+                if (diff <= 0) { const newExpiry = renewPromo(); updateCountdownDisplay(newExpiry); return; }
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                // Format the display
                 let displayText = '';
-                if (days > 0) {
-                    displayText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                } else if (hours > 0) {
-                    displayText = `${hours}h ${minutes}m ${seconds}s`;
-                } else if (minutes > 0) {
-                    displayText = `${minutes}m ${seconds}s`;
-                } else {
-                    displayText = `${seconds}s`;
-                }
-                
+                if (days > 0) displayText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                else if (hours > 0) displayText = `${hours}h ${minutes}m ${seconds}s`;
+                else if (minutes > 0) displayText = `${minutes}m ${seconds}s`;
+                else displayText = `${seconds}s`;
                 countdownElement.innerHTML = displayText;
             }
-            
-            // Initialize and run the countdown
             let expiryDate = getExpiryDate();
-            
-            // Save it if it was newly created
-            if (!localStorage.getItem(STORAGE_KEY)) {
-                saveExpiryDate(expiryDate);
-            }
-            
-            // Update display immediately and set interval
-            function tick() {
-                updateCountdownDisplay(expiryDate);
-                // Refresh expiryDate reference in case it was renewed
-                expiryDate = new Date(localStorage.getItem(STORAGE_KEY));
-            }
-            
-            tick();
-            setInterval(tick, 1000);
+            if (!localStorage.getItem(STORAGE_KEY)) saveExpiryDate(expiryDate);
+            function tick() { updateCountdownDisplay(expiryDate); expiryDate = new Date(localStorage.getItem(STORAGE_KEY)); }
+            tick(); setInterval(tick, 1000);
         })();
     </script>
     
-    <!-- KALI HYBRID AI CHAT BUBBLE - MOBILE OPTIMIZED -->
+    <!-- KALI HYBRID AI CHAT BUBBLE - UPDATED with new Typebot URL -->
     <style>
         .kali-chat-container { position: fixed; bottom: 16px; right: 16px; z-index: 99998; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; transition: opacity 0.3s ease, visibility 0.3s ease; }
         .kali-chat-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
@@ -241,19 +170,20 @@
             .kali-typebot-popup { bottom: 100px; right: 100px; left: auto; width: 400px; height: 600px; border-radius: 24px; animation: popupFadeIn 0.2s ease; }
             @keyframes popupFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
         }
+        @media (max-width: 380px) { .kali-chat-container { bottom: 12px; right: 12px; } .kali-bubble { padding: 6px 14px; } .kali-name { font-size: 0.75rem; } .kali-teaser-card { bottom: 65px; max-width: 220px; padding: 8px 12px; } .kali-teaser-message { font-size: 0.7rem; } .hybrid-badge { display: none; } }
     </style>
     <div class="kali-chat-container" id="kaliChatContainer">
         <div class="kali-teaser-card" id="kaliTeaserCard">
             <div class="kali-teaser-avatar"><div class="kali-avatar-icon">🧠</div><div><span class="kali-teaser-badge">⚡ KALI · hybrid AI ⚡</span></div></div>
-            <div class="kali-teaser-message" id="kaliRotatingTeaser">💬 Canon TS200 with CISS? I can help! 😉</div>
+            <div class="kali-teaser-message" id="kaliRotatingTeaser">💬 Canon TS200 with CISS? Ask KALI! 😉</div>
             <div class="kali-teaser-hint"><span>✨ click to chat</span><span>→</span></div>
         </div>
-        <div class="kali-bubble" id="kaliBubble"><div class="ai-pulse"></div><span class="kali-name">KALI</span><span class="hybrid-badge">CISS expert</span><span class="sparkle">✨</span></div>
+        <div class="kali-bubble" id="kaliBubble"><div class="ai-pulse"></div><span class="kali-name">KALI</span><span class="hybrid-badge">hybrid AI</span><span class="sparkle">✨</span></div>
     </div>
-    <div id="kaliTypebotPopup" class="kali-typebot-popup"><div class="kali-popup-close" id="kaliPopupClose">✕</div><iframe id="kaliTypebotIframe" src="https://typebot.co/my-typebot-r73tdqv" allow="microphone; camera; clipboard-write;"></iframe></div>
+    <div id="kaliTypebotPopup" class="kali-typebot-popup"><div class="kali-popup-close" id="kaliPopupClose">✕</div><iframe id="kaliTypebotIframe" src="https://typebot.co/bot-for-main-website-revision-lvbcmqi" allow="microphone; camera; clipboard-write;"></iframe></div>
     <script>
     (function() {
-        var teasers = ["💬 Canon TS200 with CISS? Ask me anything! 😉","⚡ Save 70% on ink costs — I'll show you how.","🧠 CISS vs cartridges? I'll explain the difference.","🔮 Want to know if TS200 fits your printing needs? Ask KALI...","💡 3-month warranty + FREE home service included 🤍","🚀 Print up to 4,000 pages per refill!","✨ FREE 100ml black ink + color ink set included.","🖨️ Single function printer — perfect for high-volume printing!"];
+        var teasers = ["💬 Canon TS200 with CISS? Ask KALI! 😉","⚡ Save 70% on ink costs — I'll show you how.","🧠 CISS vs cartridges? I'll explain the difference.","🔮 Want to know if TS200 fits your printing needs? Ask KALI...","💡 3-month warranty + FREE home service included 🤍","🚀 Print up to 4,000 pages per refill!","✨ FREE 100ml black ink + color ink set included.","🖨️ Single function printer — perfect for high-volume printing!"];
         var idx = 0, teaserEl = document.getElementById('kaliRotatingTeaser'), teaserCard = document.getElementById('kaliTeaserCard'), kaliBubble = document.getElementById('kaliBubble'), popup = document.getElementById('kaliTypebotPopup'), iframe = document.getElementById('kaliTypebotIframe'), closeBtn = document.getElementById('kaliPopupClose'), container = document.getElementById('kaliChatContainer'), isOpen = false;
         if (teaserEl) { setInterval(function() { idx = (idx + 1) % teasers.length; teaserEl.style.transition = 'opacity 0.2s'; teaserEl.style.opacity = '0'; setTimeout(function() { teaserEl.textContent = teasers[idx]; teaserEl.style.opacity = '1'; }, 150); }, 5000); }
         function openChat() { popup.style.display = 'block'; isOpen = true; if (container) container.classList.add('hidden'); iframe.src = iframe.src; }
