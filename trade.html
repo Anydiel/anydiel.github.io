@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Adaptive DBB Trade Plan Generator | AI Coach + Mag 7 Trading System</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fb;
+      color: #1a2634;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0b2b40, #1e4a6e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo i {
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #1e6f5c;
+      font-size: 1.8rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e4e;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #1e6f5c;
+    }
+    .btn-outline {
+      border: 1.5px solid #1e6f5c;
+      background: transparent;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1e6f5c;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: #1e6f5c10;
+      border-color: #0f4c3f;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0 40px;
+    }
+    .hero-content {
+      flex: 1.2;
+      min-width: 280px;
+    }
+    .hero-badge {
+      background: #e0f0ed;
+      color: #0f4c3f;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      background: linear-gradient(145deg, #102b3a, #22664f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #2c3e4e;
+      margin-bottom: 30px;
+      max-width: 550px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .stat-item h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1a2c3a;
+    }
+    .stat-item p {
+      font-size: 0.85rem;
+      color: #4f6f7f;
+      margin: 0;
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn-primary {
+      background: #1e6f5c;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 18px rgba(30,111,92,0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-primary:hover {
+      background: #0f5a4a;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: white;
+      border: 1.5px solid #cbd5e1;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #2c3e4e;
+      transition: 0.2s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      border-color: #1e6f5c;
+      background: #f8fafc;
+    }
+    .hero-image {
+      flex: 1;
+      background: #eef3f1;
+      border-radius: 32px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.1);
+    }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      text-align: center;
+      color: #4f6f7f;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      font-size: 1.05rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 24px;
+      transition: all 0.25s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e9edf2;
+    }
+    .feature-card i {
+      font-size: 2.2rem;
+      color: #1e6f5c;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .feature-card p {
+      color: #475569;
+      line-height: 1.45;
+    }
+    .ai-card {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6f3f0 100%);
+      border: 2px solid #1e6f5c30;
+    }
+    .ai-card i {
+      color: #8b5cf6;
+    }
+    .ai-badge {
+      background: #8b5cf6;
+      color: white;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .step {
+      flex: 1;
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+    }
+    .step-number {
+      background: #1e6f5c10;
+      color: #1e6f5c;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin: 0 auto 20px;
+    }
+
+    .proof-badge {
+      background: #0b2b2f;
+      color: white;
+      border-radius: 48px;
+      padding: 40px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .proof-badge p {
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 40px;
+      max-width: 550px;
+      margin: 0 auto;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.08);
+      border: 1px solid #e2edf2;
+    }
+    .price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1a2c3a;
+    }
+    .price span {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    footer {
+      border-top: 1px solid #dce5ec;
+      padding: 32px 0;
+      text-align: center;
+      color: #5b6e7c;
+      font-size: 0.85rem;
+    }
+    .legal-disclaimer {
+      background: #fef9e6;
+      border-left: 5px solid #e6b422;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 24px auto 16px;
+      max-width: 880px;
+      text-align: left;
+      font-size: 0.85rem;
+      color: #7a6a2c;
+    }
+    .legal-disclaimer i {
+      margin-right: 10px;
+      color: #d49b1a;
+    }
+    @media (max-width: 780px) {
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .navbar {
+        flex-direction: column;
+      }
+      .hero {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <i class="fas fa-chart-line"></i> 
+      <span>ADAPTIVE DBB</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#howitworks">How it works</a>
+      <a href="#pricing">Get access</a>
+      <a href="#" class="btn-outline" onclick="openDemo(); return false;">Watch demo</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-microchip"></i> MAG 7 | 77% Win-rate | 🤖 AI Coach Included
+      </div>
+      <h1>Trade plan generator + <span style="color:#8b5cf6;">AI Coach</span> that adapts to volatility</h1>
+      <p>Double Bollinger Bands + Regime detection + Aggression modes + AI-powered trading assistant. Used by real traders to survive crashes and capture dips.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><h3>+55%</h3><p>return (5k PHP → $275)</p></div>
+        <div class="stat-item"><h3>77%</h3><p>win rate (26 trades)</p></div>
+        <div class="stat-item"><h3>🤖 AI</h3><p>real-time coaching</p></div>
+      </div>
+      <div class="cta-group">
+        <button class="btn-primary" onclick="openTypebot()"><i class="fas fa-rocket"></i> Get lifetime access</button>
+        <button class="btn-secondary" onclick="openDemo()"><i class="fab fa-youtube"></i> Watch demo</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="http://catalog.anydiel.site/AItradingpng" alt="Adaptive DBB dashboard preview" onerror="this.src='https://placehold.co/600x400/1e6f5c/white?text=DBB+Trade+Plan+Generator+%2B+AI+Coach'">
+    </div>
+  </div>
+
+  <div id="features" class="section">
+    <h2 class="section-title">Engineered for <span style="color:#1e6f5c;">realistic dip hunting</span> + <span style="color:#8b5cf6;">AI accountability</span></h2>
+    <div class="section-sub">No more "impossible entries". Weekly ATR + regime detection + aggression level = entries that actually trigger. The AI Coach keeps you disciplined.</div>
+    <div class="features-grid">
+      <div class="feature-card ai-card">
+        <div class="ai-badge"><i class="fas fa-star-of-life"></i> NEW</div>
+        <i class="fas fa-robot"></i>
+        <h3>🤖 AI Coach</h3>
+        <p>Integrated OpenRouter AI (Llama 3.3 70B). One-click analysis: checks market alignment, detects regime changes, and suggests actions. Your personal trading accountability partner.</p>
+      </div>
+      <div class="feature-card"><i class="fas fa-waveform"></i><h3>Weekly ATR dip spacing</h3><p>Uses weekly volatility (not daily) to space dip levels. Survived NVDA crash $200 → $160 without adding extra cash.</p></div>
+      <div class="feature-card"><i class="fas fa-brain"></i><h3>Regime detection</h3><p>CONSOLIDATING / TRENDING / VOLATILE. Adjusts position sizing automatically – 1 share in consolidation, 5 shares in volatility.</p></div>
+      <div class="feature-card"><i class="fas fa-sliders-h"></i><h3>Aggression level control</h3><p>AGGRESSIVE (more entries), MODERATE (balanced), CONSERVATIVE (crash survival). You decide risk profile.</p></div>
+      <div class="feature-card"><i class="fas fa-chart-simple"></i><h3>Double Bollinger + DBB confirm</h3><p>1.5σ & 2.0σ bands with bounce confirmation. Confidence scoring prevents fake breakdowns.</p></div>
+      <div class="feature-card"><i class="fas fa-arrow-trend-up"></i><h3>Mirror short plan</h3><p>Short at Fibonacci resistance, scale out using same logic. Profits in any direction.</p></div>
+      <div class="feature-card"><i class="fas fa-copy"></i><h3>GTC orders & alerts</h3><p>Copy-paste ready orders, price alerts. Works with any broker (manual execution).</p></div>
+      <div class="feature-card"><i class="fas fa-chart-line"></i><h3>MACD momentum weakening</h3><p>Detects momentum exhaustion before reversal — your personal edge.</p></div>
+    </div>
+  </div>
+
+  <div id="howitworks" class="section" style="background:#f0f4f8; border-radius: 56px; margin: 20px 0 40px; padding: 40px 24px;">
+    <h2 class="section-title">From forecast to execution in 3 clicks</h2>
+    <div class="steps">
+      <div class="step"><div class="step-number">1</div><h3>Select ticker</h3><p>NVDA, TSLA, GOOGL, AAPL, MSFT, AMZN, META — any Mag 7.</p></div>
+      <div class="step"><div class="step-number">2</div><h3>Set aggression</h3><p>Aggressive / Moderate / Conservative. Get dip levels + short entries.</p></div>
+      <div class="step"><div class="step-number">3</div><h3>🤖 Ask AI Coach</h3><p>Click AI Coach button — get instant market analysis, regime check, and next-step recommendation.</p></div>
+    </div>
+    <div style="text-align: center; margin-top: 32px;">
+      <span style="background:#ffffffcc; padding: 10px 22px; border-radius: 60px; font-weight: 500;"><i class="fas fa-chart-line"></i>  “I took profit at $196, not waiting for $202 — discipline beats prediction.” – Angel, creator</span>
+    </div>
+  </div>
+
+  <div class="proof-badge">
+    <i class="fas fa-chart-line" style="font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i>
+    <p><strong>Real track record:</strong> 5k PHP initial → added 20k PHP during volatility → <strong>$275 net profit</strong> in 4 months. 77% win rate across 26 trades.</p>
+    <div style="margin-top: 16px;"><i class="fas fa-check-circle"></i> No hard stop losses — survival zone &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-check-circle"></i> Dynamic dip spacing &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-check-circle"></i> 🤖 AI Coach for accountability</div>
+  </div>
+
+  <div id="pricing" class="section">
+    <div class="pricing-card">
+      <i class="fas fa-gem" style="font-size: 2.5rem; color: #1e6f5c;"></i>
+      <i class="fas fa-robot" style="font-size: 2rem; color: #8b5cf6; margin-left: 8px;"></i>
+      <h2 style="margin: 12px 0 8px;">Lifetime license + AI Coach</h2>
+      <div class="price">$297 <span>USD / one-time</span></div>
+      <p style="margin: 15px 0 20px;">Includes full Python source code, AI Coach integration, lifetime updates, user manual, and priority support. No subscription. Run locally — your data stays private.</p>
+      <ul style="text-align: left; margin: 20px 30px; list-style: none;">
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> Adaptive DBB v5.0 engine</li>
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> 🤖 <strong>AI Coach (OpenRouter Llama 3.3 70B)</strong></li>
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> Weekly ATR + regime detection</li>
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> Aggression level (AGGRESSIVE/MODERATE/CONSERVATIVE)</li>
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> Short plan & GTC orders</li>
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> MACD momentum weakening detector</li>
+        <li><i class="fas fa-check" style="color:#1e6f5c; margin-right: 12px;"></i> No hard stop loss — survival zone concept</li>
+      </ul>
+      <button class="btn-primary" style="width: 80%; margin-top: 12px;" onclick="openTypebot()"><i class="fas fa-envelope"></i> Secure access now</button>
+      <p style="margin-top: 20px; font-size: 0.8rem;">🔐 7-day money-back guarantee • Python 3.10+ required • OpenRouter API key (free credits included)</p>
+    </div>
+  </div>
+
+  <div style="background: white; border-radius: 32px; padding: 32px; margin: 30px 0;">
+    <h3 style="text-align: center; margin-bottom: 24px;">Frequently asked</h3>
+    <div style="display: grid; gap: 18px;">
+      <div><strong>❓ What exactly does the AI Coach do?</strong><br>It analyzes your plan vs. current market, checks regime alignment, and suggests actionable steps. One click, instant advice.</div>
+      <div><strong>❓ Does it require an OpenAI subscription?</strong><br>No. It uses OpenRouter with Llama 3.3 70B — very low cost (~$0.002 per query). Free credits included.</div>
+      <div><strong>❓ Does it support crypto or small caps?</strong><br>No — optimized exclusively for Mag 7 (NVDA, TSLA, GOOGL, AMZN, AAPL, MSFT, META).</div>
+      <div><strong>❓ Do I need to code?</strong><br>No coding required. Python must be installed, but we provide a simple installer script and manual.</div>
+      <div><strong>❓ Can I use it with any broker?</strong><br>Yes. It generates GTC orders and alerts — you copy-paste to your broker (IBKR, Schwab, etc).</div>
+      <div><strong>❓ Is there a stop loss?</strong><br>No hard stop loss. The system uses a “reference stop” and survival zone. Matches the philosophy: hold & wait for recovery (Mag 7).</div>
+      <div><strong>❓ How is it different from TradingView?</strong><br>TradingView shows indicators. Our tool tells you exact dip levels, position sizing, regime-based scaling, AND an AI Coach that holds you accountable.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="legal-disclaimer">
+      <i class="fas fa-gavel"></i> <strong>Important legal notice:</strong> This software is a trade plan generator and educational tool. We do NOT collect, manage, or pool investments from the public. No funds are solicited, accepted, or managed by Anydiel IT Services. The user is solely responsible for their own trading decisions and risk management. Past performance does not guarantee future results.
+    </div>
+    <p>© 2026 Anydiel IT Services — Adaptive DBB Trade Plan Generator v5.0 | Not financial advice. Trading involves risk.</p>
+    <p style="margin-top: 8px;">
+      <i class="fas fa-envelope"></i> sales-services@anydiel.site &nbsp;&nbsp;|&nbsp;&nbsp; 
+      <i class="fab fa-discord"></i> Discord community for licensed users &nbsp;&nbsp;|&nbsp;&nbsp;
+      <i class="fas fa-robot"></i> AI Coach powered by OpenRouter
+    </p>
+  </footer>
+</div>
+
+<script>
+  // Updated demo URL as requested
+  const DEMO_URL = "https://youtu.be/UvGe1RMeaZg";
+  const TYPEBOT_URL = "https://typebot.co/lead-capture-for-tp-gv5-n9btyr8";
+
+  function openTypebot() {
+    window.open(TYPEBOT_URL, "_blank", "noopener,noreferrer");
+  }
+  
+  function openDemo() {
+    window.open(DEMO_URL, "_blank", "noopener,noreferrer");
+  }
+  
+  // Attach event listeners to buttons
+  document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTypebot();
+    });
+  });
+  
+  document.querySelectorAll('.btn-secondary, .btn-outline').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDemo();
+    });
+  });
+</script>
+</body>
+</html>
