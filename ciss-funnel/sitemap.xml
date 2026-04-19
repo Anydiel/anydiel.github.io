@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- ============================================ -->
+    <!-- MAIN PAGE: The primary URL for the funnel    -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en-ph" href="https://catalog.anydiel.site/ciss-funnel"/>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- LOCAL SERVICE ANCHORS (Sections on the page) -->
+    ============================================ -->
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#ciss-installation-quezon-city</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#ciss-home-service-qc</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#ciss-installation-price-philippines</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#service-areas-quezon-city</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- MODEL-SPECIFIC ANCHORS                       -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#ciss-for-canon-ts207</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#canon-mg3070-continuous-ink-system</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#ciss-for-canon-e4270</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#canon-mg2570-ink-refill-system</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#ciss-for-canon-e460</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#additional-compatible-canon-models</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ============================================ -->
+    <!-- FAQ ANCHORS (Great for "People Also Ask")    -->
+    <!-- ============================================ -->
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#faq-ciss-installation-cost-quezon-city</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#faq-ciss-installation-duration</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#faq-ciss-void-printer-warranty</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#faq-is-ciss-safe-for-printer</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://catalog.anydiel.site/ciss-funnel#faq-ciss-outside-quezon-city</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset>
