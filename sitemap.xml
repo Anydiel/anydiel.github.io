@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- ============================================ -->
     <!-- MAIN SITE: Root Index Page                   -->
@@ -10,7 +9,6 @@
         <lastmod>2026-04-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en-ph" href="https://catalog.anydiel.site/"/>
     </url>
 
     <!-- ============================================ -->
@@ -48,10 +46,9 @@
     </url>
 
     <!-- ============================================ -->
-    <!-- PRODUCT & SERVICE PAGES (from Main Index)    -->
+    <!-- PRODUCT PAGES (from Main Index)              -->
     <!-- ============================================ -->
     
-    <!-- Canon Cartridge Products -->
     <url>
         <loc>https://catalog.anydiel.site/product/canon-pg-745-cl-746</loc>
         <lastmod>2026-04-20</lastmod>
@@ -73,7 +70,6 @@
         <priority>0.7</priority>
     </url>
 
-    <!-- Bundles and Special Offers -->
     <url>
         <loc>https://catalog.anydiel.site/product/print-and-finish-bundle</loc>
         <lastmod>2026-04-20</lastmod>
@@ -88,7 +84,10 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- Core Service Pages -->
+    <!-- ============================================ -->
+    <!-- SERVICE PAGES                                -->
+    <!-- ============================================ -->
+    
     <url>
         <loc>https://catalog.anydiel.site/service/printer-repair</loc>
         <lastmod>2026-04-20</lastmod>
@@ -112,16 +111,6 @@
 
     <url>
         <loc>https://catalog.anydiel.site/service/cctv-installation</loc>
-        <lastmod>2026-04-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <!-- ============================================ -->
-    <!-- LOCAL SEO: Service Area Page (from ciss-funnel) -->
-    <!-- ============================================ -->
-    <url>
-        <loc>https://catalog.anydiel.site/ciss-funnel#service-areas-quezon-city</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
